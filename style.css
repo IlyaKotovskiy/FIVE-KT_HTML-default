@@ -1,0 +1,134 @@
+:root {
+    --red: red;
+    --yellow: rgb(255, 255, 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nerko One', cursive;
+}
+
+*::before,
+*::after {
+    font-family: 'Nerko One', cursive;
+    box-sizing: inherit;
+}
+
+body {
+    background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-03/1614626831_3-p-fon-kosmosa-dlya-fotoshopa-5.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 65vh;
+    display: block;
+    width: 100vw;
+    height: 100vw;
+    background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-03/1614547191_24-p-luna-na-belom-fone-32.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 1;
+    animation: moon 90s linear infinite;
+}
+
+.ilya-rocket {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.ilya-rocket-box {
+    width: 200px;
+    display: flex;
+    animation: fly 7s linear 1;
+}
+
+.ilya-rocket-box__item {
+    width: 50px;
+    height: 50px;
+    background-color: var(--red);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box__item:nth-child(1) {
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid var(--red);
+    border-right: 20px solid transparent;
+    background-color: transparent;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.box__item:nth-child(2) {
+    width: 0;
+    height: 0;
+    border-top: 20px solid var(--red);
+    border-right: 20px solid transparent;
+    background-color: transparent;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.ilya-rocket-box__item.oval {
+    width: calc(100% - (20px + 30px));
+    height: 75px;
+    border-radius: 100px / 50px;
+    background: rgb(255, 0, 0) linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(244,255,0,1) 100%);
+    position: relative;
+}
+
+.ilya-rocket-box__item.oval::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+    background-image: url('https://avatars.mds.yandex.net/i?id=02b863633661a1ed265553b2fa88ab07-5855963-images-thumbs&ref=rim&n=33&w=225&h=225');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin: 11% auto;
+}
+
+.ilya-rocket-box__item.oval::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc((75px - 30px) / 2);
+    right: -22px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+	border-left: 30px solid #f4ff00;
+	border-bottom: 15px solid transparent;
+    z-index: -1;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(0vw);
+    }
+
+    100% {
+        transform: translateX(calc(100vw - 250px));
+    }
+}
+
+@keyframes moon {
+    100% {
+        transform: rotate(360deg);
+    }
+}
